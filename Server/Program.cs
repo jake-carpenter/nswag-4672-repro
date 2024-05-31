@@ -10,7 +10,9 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 // Will accept IDs like /todos/1,2,3 as strings
-app.MapGet("/todos/{ids}", (string ids) => Results.Ok(ids));
+app
+    .MapGet("/todos/{ids}", (string ids) => Results.Ok(ids.Split(',')))
+    .Produces<IEnumerable<string>>();
 
 app.Run();
 

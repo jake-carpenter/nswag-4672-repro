@@ -1,36 +1,46 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-      "title": "Server",
-      "version": "1.0"
-  },
-  "paths": {
-      "/todos/{ids}": {
-      "get": {
-          "tags": [
-          "Server"
-          ],
-          "parameters": [
-          {
-              "name": "ids",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-              "type": "array",
-              "items": {
-                  "type": "string"
-              }
-              }
-          }
-          ],
-          "responses": {
-          "200": {
-              "description": "Success"
-          }
-          }
-      }
-      }
-  },
-  "components": { }
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Server",
+        "version": "1.0"
+    },
+    "paths": {
+        "/todos/{ids}": {
+            "get": {
+                "tags": [
+                    "Server"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": { }
 }
